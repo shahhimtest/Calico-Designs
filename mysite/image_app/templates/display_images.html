@@ -1,0 +1,128 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <meta charset="UTF-8"> 
+    <title>Calico Designs</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+
+    <!--click to make image change -->
+    <script> 
+        $(document).ready(function(){
+            $(myimage).click(function(){
+                $(myimage).hide();
+                $(mydrawing).show();
+            });
+
+            $(mydrawing).click(function(){
+                $(mydrawing).hide();
+                $(myimage).show();
+            });
+        });
+
+        $(document).foundation();
+
+    </script>
+
+   <!-- CSS -->
+    <style>
+        h5          
+            {text-align: center;}
+        body        
+            {background-color: #88acb6; }
+        #text_bar   
+            {background-color: #Bcc2c6;}
+        #images, #occ     
+            {background-color: #Dbdddf;}
+        #my-info    
+            {background-color: #cdecf0;}
+        a{
+            background-color: #88acb6;
+            border: none;
+            color: white;
+            padding: 8px 32px;
+            width: 31.5%;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 0.6;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+
+    </style>
+</head> 
+<body>
+
+    <h1>Calico Designs</h1>
+
+
+    <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+    <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
+    <div class="row column">
+        <br>
+        <img class="thumbnail" src='media/squid.jpg'>
+        <h5>Sydney Silver</h5>
+        <p> $35+ USD (10 pack)</p>
+        <p>To show complete orders(to show images uploaded) on main page,
+             go to admin click show on a spacific object. Then reload the main page and the new image should be visable.
+            this is to prevent uncompleted orders from showing up on the website. </p>
+        <p>Page is dynamic, Try adjusting window size.</p>
+        <p>Website created by Oliver</p>
+    </div>
+    </div>
+  
+    <div class="off-canvas-content" id="occ" data-off-canvas-content>
+    <div class="title-bar hide-for-large">
+    <div class="title-bar-left">
+        <button class="menu-icon" type="button" data-open="my-info"></button>
+        <span class="title-bar-title">Sydney Silver</span>
+    </div>
+    </div>
+            
+    <div class="callout primary" id="text_bar">
+    <div class="row column">
+        <h1>Custom pet stickers</h1>
+        <a href="https://www.instagram.com/calico_designs_/?hl=en">Instagram</a>
+        <a href="http://127.0.0.1:8000/upload/">Order</a>
+        <a href="http://127.0.0.1:8000/chat/mychat/">Chat</a>
+
+        </div>
+    </div>
+
+    <div class="row small-up-2 medium-up-3 large-up-4" id="images">
+    {% for cat in cat_images %}
+    {%if  cat.show %}
+    <div class="column" id="{{ forloop.counter }}<"> 
+        <img id="mydrawing" src="{{ cat.cat_drawing.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" />
+        <img id="myimage" src="{{ cat.cat_img.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px; display:none;" />
+        <h5>{{ cat.petname }}</h5>
+    </div> 
+    {% endif %}
+    {% endfor %}
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+  
+</body> 
+</html> 

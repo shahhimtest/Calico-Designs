@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+<head>
+  <meta charset = "UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload</title>
+
+  <style>
+     body{background-color: #b7b0d0; }
+
+    .translucent-form-overlay {
+      margin: auto;
+      position: relative;
+      top: 50px;
+      width: 50%;
+      max-width: 250px;
+      background-color: rgba(54, 54, 54, 0.8);
+      padding: 20px;
+      color: #fefefe;
+      border-radius: 12px;
+    }  
+
+    #title{
+      text-align: center;
+    }
+
+    #field{
+      text-align: center;
+    }
+
+    #form{
+      padding-top: 3px;
+      padding-bottom: 5px;
+      padding-left: 50px;
+    }
+        
+    .button {
+      background-color: #88acb6;
+      border: none;
+      color: white;
+      padding: 8px 32px;
+      width: 100%;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      opacity: 0.6;
+      transition: 0.3s;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+    .button:hover {opacity: 1}
+
+    </style>
+
+</head>
+<body>
+  <div class="translucent-form-overlay">
+    <form method = "post" enctype="multipart/form-data">
+    <h3 id="title">Upload Your Image </h3>
+
+    {% csrf_token %}
+
+    <div class="row columns">
+      <div id="field">Your name</div>
+      <div id="form" class ="row columns" >{{form.name}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">Pet name</div>
+      <div id="form" class ="columns" >{{form.petname}}</div>
+      </div>
+    <div class="row columns">
+      <div id="field">Address</div>
+      <div id="form" class ="columns" >{{form.addr1}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field"> Address 2</div>
+      <div id="form" class ="columns" >{{form.addr2}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">City</div>
+      <div id="form" class ="columns" >{{form.city}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">State</div>
+      <div id="form" class ="columns" >{{form.state}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">International</div>
+      <div id="form" class ="columns" >{{form.itn}}</div>
+      </div>
+    <div class="row columns">
+      <div id="field">Postcode</div>
+      <div id="form" class ="columns" >{{form.postcode}}</div>
+    </div>    
+    <div class="row columns">
+      <div id="field">Contact</div>
+      <div id="form" class ="columns" >{{form.contact}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">Venmo</div>
+      <div id="form" class ="columns" >{{form.venmo}}</div>
+    </div>
+    <div class="row columns">
+      <div id="field">Image</div>
+      <div id="form" class ="columns" >{{form.cat_img}}</div>
+    </div>
+    <button id="form" class ="button" type = "submit">Upload</button>
+    </form>
+  </div>
+</body>
+</html>
+
