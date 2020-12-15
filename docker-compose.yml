@@ -2,14 +2,24 @@
 version: '3'
 
 services:
-   redis:
-      image: "redis:latest"
-   web:
-      build: .
-      volumes:
-         - .:/code
-      ports:
-         - 8000:8000
-      command: python /code/mysite/manage.py runserver 0.0.0.0:8000
-      links:
-         - redis
+  redis:
+    image: "redis:latest"
+  web:
+    build: .
+    volumes:
+      - .:/code
+    expose:
+      - 8000
+    command: python /code/mysite/manage.py runserver 0.0.0.0:8000
+    links:
+      - redis
+  
+  nginx:
+    restart: always
+    build: ./nginx/
+    depends_on:
+      - web
+    ports:
+      - 80:80
+    links:
+      - web:web
