@@ -17,14 +17,9 @@
     <!--click to make image change -->
     <script> 
         $(document).ready(function(){
-            $(myimage).click(function(){
-                $(myimage).hide();
-                $(mydrawing).show();
-            });
-
-            $(mydrawing).click(function(){
-                $(mydrawing).hide();
-                $(myimage).show();
+            $('img').click(function(){
+                $(myimage).toggle();
+                $(mydrawing).toggle();
             });
         });
 
@@ -44,12 +39,12 @@
             {background-color: #Dbdddf;}
         #my-info    
             {background-color: #cdecf0;}
-        a{
+        #buttons{
             background-color: #88acb6;
             border: none;
             color: white;
             padding: 8px 32px;
-            width: 31.5%;
+            width: 200px;
             text-align: center;
             font-size: 16px;
             margin: 4px 2px;
@@ -76,11 +71,14 @@
         <br>
         <img class="thumbnail" src='media/Squid.jpg'>
         <h5>Sydney Silver</h5>
+        <h5>Owner</h5>
+        <br>
         <p> $35+ USD (10 pack)</p>
         <p>To show complete orders(to show images uploaded) on main page,
              go to admin click show on a spacific object. Then reload the main page and the new image should be visable.
             this is to prevent uncompleted orders from showing up on the website. </p>
         <p>Page is dynamic, Try adjusting window size.</p>
+        <p>Webpage made and tested in safari</p>
         <p>Website created by Oliver</p>
     </div>
     </div>
@@ -96,9 +94,9 @@
     <div class="callout primary" id="text_bar">
     <div class="row column">
         <h1>Custom pet stickers</h1>
-        <a href="https://www.instagram.com/calico_designs_/?hl=en">Instagram</a>
-        <a href="http://127.0.0.1:8000/upload/">Order</a>
-        <a href="http://127.0.0.1:8000/chat/mychat/">Chat</a>
+        <a id="buttons" href="https://www.instagram.com/calico_designs_/?hl=en">Instagram</a>
+        <a  id="buttons" href="http://35.209.245.214/upload/">Order</a>
+        <a id="buttons" href="http://35.209.245.214/chat/mychat/">Chat</a>
 
         </div>
     </div>
